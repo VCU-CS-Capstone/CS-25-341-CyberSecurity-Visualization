@@ -13,7 +13,7 @@
 ## 2) Milestones to be completed next week ##
    - debug the code to be performed by student C
 
-## 3) Issues, problems or concerns ##
+## 3) Issues, problems, or concerns ##
    - student C needs to learn java
    - database repository costs big $$$
    
