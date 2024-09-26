@@ -13,10 +13,10 @@
 * Milos Manic
 
 ## 1) Accomplishments this week ##
-* Looked into Zeek and made a few ideas for our project. Updated Github repo – Chris M  
+* Looked into Zeek and made a few ideas for our project. Updated Github repo – Chris Malatesta
 * Did some research on Zeek and updated the GitHub root README.md. – Calvin Hurlbert  
 * Installed Zeek but getting familiar with it with respect to the network \- Jaspreet Singh  
-* Familiaze with zeek interface and general network security fundamentals as well as common attacks – Keith
+* Familiaze with zeek interface and general network security fundamentals as well as common attacks – Keith Tran
 
 ## 2) Milestones to be completed next week ##
 
