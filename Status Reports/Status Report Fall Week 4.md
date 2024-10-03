@@ -17,7 +17,6 @@ Milos Manic
    - Researched connecting Pi board to WiFi. Found WiFi unnecessary as LAN should be sufficient - Calvin
    - Setup monitoring tools like  splunk and working on zeek coding but getting errors so have to do it from scratch - Working on Splunk if we can block the RFID device remotely if any breach happens - Learned that the RF IDs can be vanished if touched with magnet - Jaspreet
    - Successfully set up zeek on a local network and monitored traffic with logs and researched and proposed potential hardware ecosystem for attack simulation - Keith
-   -  - ALL
 
 ## 2) Milestones to be completed next week ##
    -  - Chris M
