@@ -19,11 +19,8 @@ Milos Manic
    - Successfully set up zeek on a local network and monitored traffic with logs and researched and proposed potential hardware ecosystem for attack simulation - Keith
 
 ## 2) Milestones to be completed next week ##
-   -  - Chris M
-   -  - Calvin
-   -  - Jaspreet
-   - Finishing orders for required materials - Keith
    - Project Proposal - ALL
+   - Finishing orders for required materials - Keith
 
 ## 3) Issues, problems, or concerns ##
    - Need additional clarity from Cyber Security research associate to finalize network architecture and attack model, schedule not yet decided
