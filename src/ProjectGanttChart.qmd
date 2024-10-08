@@ -1,5 +1,5 @@
 ---
-title: Fall 2024 Project Timeline
+title: CyberSecurity Visualization Timeline
 authors:
     - name: Calvin Hurlbert
       email: hurlbertc@vcu.edu
@@ -16,7 +16,7 @@ format:
 ```{mermaid}
 gantt
     dateFormat  MM-DD
-    title       CyberSecurity Visualization Timeline
+    title       Fall 2024
 
     section Project Proposal
     Work on proposal                    :active,    09-26, 10-11
