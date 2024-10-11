@@ -20,15 +20,15 @@ gantt
     todayMarker off
 
     section Project Proposal
-    Work on proposal                    :active,    09-26, 10-11
+    Work on proposal                    :active,    09-26, 10-18
     Break down proposal                 :done,      09-26, 1d
     Finalize project idea               :done,      10-02, 1d
     Present idea to advisor             :done,      10-03, 1d
-    Review proposal                     :           10-10, 1d
+    Review proposal                     :           10-17, 1d
 
     section Fall Design Poster
-    Work on poster                      :           10-12, 11-15
-    Break down poster                   :           10-17, 1d
+    Work on poster                      :           11-01, 11-15
+    Break down poster                   :           11-01, 1d
     Review poster                       :           11-14, 1d
 
     section Preliminary Design Report
@@ -37,10 +37,10 @@ gantt
     Review report                       :           12-05, 1d
 
     section Other
-    Order needed supplies               :active,    task1,       10-03, 2w
-    Set up Raspberry Pi servers         :           task2, after task1, 1w
+    Order needed supplies               :active,    task1,       09-30, 4w
+    Set up Raspberry Pi servers         :           task2,       10-14, 1w
     Set up Zeek on server               :           task3, after task2, 1w
-    Run attacks on server               :           task4, after task3, 2w
-    Design visual of attacks            :           task5, after task4, 2w
+    Run attacks on server               :           task4, after task3, 3w
+    Design visual of attacks            :           task5,       11-11, 2w
 
 ```
