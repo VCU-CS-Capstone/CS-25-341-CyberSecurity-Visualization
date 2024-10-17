@@ -19,7 +19,7 @@
 * Ordered required project resources post-consultation, began planning on overall project approach - Keith
 
 ## 2) Milestones to be completed next week ##
-*  Set up the servers on Raspberry Pis - Calvin
+*  Set up the servers on Raspberry Pis, look into how to do a DOS attack on RFIDs - Calvin
 *  Finish setting up a fully functional Zeek dashboard - Jaspreet
 *  Start GUI design for network monitoring, finalize hardware requirements, reach out to RFID community from saintcon, and begin classifying anomalies in terms of trackability and harm potential - Keith
 
