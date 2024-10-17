@@ -21,7 +21,7 @@
 ## 2) Milestones to be completed next week ##
 *  Set up the servers on Raspberry Pis - Calvin
 *  Finish setting up a fully functional Zeek dashboard - Jaspreet
-*  Start GUI design for network monitoring, finalize hardware requirements, and begin classifying anomalies in terms of trackability and harm potential - Keith
+*  Start GUI design for network monitoring, finalize hardware requirements, reach out to RFID community from saintcon, and begin classifying anomalies in terms of trackability and harm potential - Keith
 
 ## 3) Issues, problems, or concerns ##
 * Resources needed have not come in yet so we are not yet able to start work on the servers
