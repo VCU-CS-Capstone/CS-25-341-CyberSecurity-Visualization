@@ -32,15 +32,14 @@ gantt
     Review poster                       :           11-14, 1d
 
     section Preliminary Design Report
-    Work on report                      :           11-16, 12-09
+    Work on report                      :           11-16, 12-07
     Break down report                   :           11-21, 1d
     Review report                       :           12-05, 1d
 
     section Other
-    Order needed supplies               :active,    task1,       09-30, 4w
-    Set up Raspberry Pi servers         :           task2,       10-14, 1w
-    Set up Zeek on server               :           task3, after task2, 1w
-    Run attacks on server               :           task4, after task3, 3w
-    Design visual of attacks            :           task5,       11-11, 2w
+    Order needed supplies               :active,    task1,       09-30, 10-31
+    Set up servers                      :           task2,       10-28, 2w
+    Run attacks on servers              :           task3, after task2, 3w
+    Design visual of attacks            :           task5,       11-18, 3w
 
 ```
