@@ -43,3 +43,33 @@ gantt
     Design visual of attacks            :           task5,       11-18, 3w
 
 ```
+
+```{mermaid}
+gantt
+    dateFormat  MM-DD
+    title       Spring 2025
+    todayMarker off
+
+    section Team Contract Update
+    Work on contract                    :           01-20, 01-31
+
+    section EXPO Abstract & Poster
+    Work on abstract & poster           :           02-01, 03-28
+    Break down abstract & poster        :           02-01, 1d
+    Review abstract & poster            :           03-26, 1d
+
+    section Capstone EXPO
+    EXPO Date                           :           04-25, 1d
+
+    section Final Design Report
+    Work on report                      :           03-29, 05-02
+    Break down report                   :           03-29, 1d
+    Review report                       :           04-30, 1d
+
+    section Other
+    Order needed supplies               :active,    task1,       01-13, 01-31
+    Set up servers                      :           task2, after task1, 2w
+    Run attacks on servers              :           task3, after task2, 3w
+    Design visual of attacks            :           task4, after task3, 3w
+
+```
