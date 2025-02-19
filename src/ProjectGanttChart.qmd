@@ -16,6 +16,7 @@ format:
 ```{mermaid}
 gantt
     dateFormat  MM-DD
+    axisFormat  %m-%d
     title       Fall 2024
     todayMarker off
 
@@ -47,6 +48,7 @@ gantt
 ```{mermaid}
 gantt
     dateFormat  MM-DD
+    axisFormat  %m-%d
     title       Spring 2025
     todayMarker off
 
@@ -67,9 +69,9 @@ gantt
     Review report                       :           04-30, 1d
 
     section Other
-    Order needed supplies               :active,    task1,       01-13, 01-31
+    Order supplies                      :           task1,       01-13, 01-31
     Set up servers                      :           task2, after task1, 2w
-    Run attacks on servers              :           task3, after task2, 3w
+    Run attacks on servers              :active,    task3, after task2, 3w
     Design visual of attacks            :           task4, after task3, 3w
 
 ```
