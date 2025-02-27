@@ -1,5 +1,5 @@
 import socket
-server_host = "127.0.0.1"                                               # TODO change to the IP address of the auth server on current network
+server_host = "127.0.0.1"												# TODO change to the IP address of the auth server on current network
 server_port = 341
 
 # setting up socket
@@ -9,8 +9,8 @@ server.listen(1)
 print ("Socket created\n")
 
 # function to authenticate the rfid signals
-def authenticate(rfid):								# TODO create authentication process
-	valid_rfids = [0, 1, 2]
+def authenticate(rfid):													# TODO create authentication process
+	valid_rfids = [1, 2, 3]
 	return True if rfid in valid_rfids else False
 
 # server loop

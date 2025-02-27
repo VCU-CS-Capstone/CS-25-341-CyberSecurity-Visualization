@@ -3,15 +3,15 @@ server_host = "127.0.0.1"                                               # TODO c
 server_port = 341
 rfid = 0
 
-# creating socket
-auth = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
 # function to unlock the door
 def unlock_door():
       print("Door is unlocked\n")
 
 # function to send rfid to server for authentication
 def authenticate(rfid):
+      # creating socket
+      auth = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
       # connecting to auth server
       auth.connect((server_host, server_port))
       print("Connecting to auth server ...")
@@ -19,7 +19,6 @@ def authenticate(rfid):
       # confirming connection
       request = "Door PI"
       auth.send(request.encode())
-      print("Confirmation request sent: " + request)
       confirmation = auth.recv(64)
 
       # closing connection if auth server is not reached
@@ -32,13 +31,14 @@ def authenticate(rfid):
 
             # receiving and printing response from server
             auth.send(str(rfid).encode())
-            print("RFID sent")
             response = auth.recv(64)
             verified = True if response == "RFID verified" else False
 
             if verified:
-                  print("RFID card verified. Access confirmed")
+                  print("RFID card verified")
                   unlock_door()
+            else:
+                  print("RFID card denied\n")
 
       # closing connection to server
       auth.close()
@@ -48,7 +48,7 @@ while 1:
       # waiting for RFID scan
       print("Waiting for RFID scan ...")
       while not rfid:
-            rfid = input("Input: ")                                                 # TODO change to proxmark input
+            rfid = input("Input: ")                                     # TODO change to proxmark input
       
       # sending to server for authentication
       authenticate(rfid)
