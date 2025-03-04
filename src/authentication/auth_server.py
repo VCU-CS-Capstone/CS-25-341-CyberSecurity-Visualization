@@ -22,7 +22,7 @@ while 1:
 
 	# confirming client is a door pi
 	confirmation = "Auth Server"
-	request = door_pi.recv(64)
+	request = door_pi.recv(64).decode()
 	print("Confirmation request received: " + request + ".")
 
 	# closing connection if connected device is not door pi 
@@ -35,7 +35,7 @@ while 1:
 		print("Request confirmed")
 
 		# receiving rfid
-		rfid_string = door_pi.recv(64)
+		rfid_string = door_pi.recv(64).decode()
 		rfid = int(rfid_string)
 		print("RFID received: ", rfid)
 

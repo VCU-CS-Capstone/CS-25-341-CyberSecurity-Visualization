@@ -19,7 +19,7 @@ def authenticate(rfid):
       # confirming connection
       request = "Door PI"
       auth.send(request.encode())
-      confirmation = auth.recv(64)
+      confirmation = auth.recv(64).decode()
 
       # closing connection if auth server is not reached
       if confirmation != "Auth Server":
@@ -31,7 +31,7 @@ def authenticate(rfid):
 
             # receiving and printing response from server
             auth.send(str(rfid).encode())
-            response = auth.recv(64)
+            response = auth.recv(64).decode()
             verified = True if response == "RFID verified" else False
 
             if verified:
