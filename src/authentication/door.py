@@ -61,7 +61,7 @@ def run_proxmark3():
     try:
         # Start the Proxmark3 process
         process = subprocess.Popen(
-            ["./pm3", "-i"],  # Path to your pm3 executable
+            ["../Proxmark3 Easy/FOR_Proxmark_Easy_512K/PM3_2023_installation_free/client/pm3", "-i"],  # Path to your pm3 executable
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
