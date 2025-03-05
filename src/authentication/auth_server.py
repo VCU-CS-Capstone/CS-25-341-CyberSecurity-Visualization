@@ -1,4 +1,6 @@
 import socket
+
+# socket ip and port global variables
 server_host = "127.0.0.1"												# TODO change to the IP address of the auth server on current network
 server_port = 341
 
@@ -14,7 +16,7 @@ def authenticate(rfid):													# TODO create authentication process
 	return True if rfid in valid_rfids else False
 
 # server loop
-while 1:
+while True:
 	# waiting for client connection
 	print("Waiting for client ...")
 	door_pi, addr = server.accept()
