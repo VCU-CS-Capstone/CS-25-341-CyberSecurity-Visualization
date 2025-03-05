@@ -56,52 +56,52 @@ def authenticate(rfid):
 
 # Function to start and monitor Proxmark3
 def run_proxmark3():
-    global latest_rfid
+      global latest_rfid
     
-    try:
-        # Start the Proxmark3 process
-        process = subprocess.Popen(
-            ["../Proxmark3 Easy/FOR_Proxmark_Easy_512K/PM3_2023_installation_free/client/pm3", "-i"],  # Path to your pm3 executable
-            stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            text=True,
-            bufsize=1
-        )
+      try:
+            # Start the Proxmark3 process
+            process = subprocess.Popen(
+                  ["../Proxmark3 Easy/FOR_Proxmark_Easy_512K/PM3_2023_installation_free/client/pm3", "-i"],  # Path to your pm3 executable
+                  stdin=subprocess.PIPE,
+                  stdout=subprocess.PIPE,
+                  stderr=subprocess.STDOUT,
+                  text=True,
+                  bufsize=1
+            )
         
-        print("Proxmark3 started, setting up card scanning...")
-        time.sleep(2)  # Give it time to initialize
+            print("Proxmark3 started, setting up card scanning...")
+            time.sleep(2)  # give time to initialize
         
-        # Set up continuous scanning for EM4100 cards
-        process.stdin.write("lf em 410x watch\n")
-        process.stdin.flush()
+            # set up continuous scanning for EM4100 cards
+            process.stdin.write("lf em 410x watch\n")
+            process.stdin.flush()
         
-        # Regular expression to match the card ID format
-        # Pattern matches: [#] EM TAG ID: 340078f067 - ( 61543_120_07925863 )
-        card_pattern = re.compile(r'\[#\] EM TAG ID: ([0-9a-f]+) -')
+            # regular expression to match RFID format
+            # pattern matches: [#] EM TAG ID: 340078f067 - ( 61543_120_07925863 )
+            card_pattern = re.compile(r'\[#\] EM TAG ID: ([0-9a-f]+) -')
         
-        # Monitor the output for card readings
-        while True:
-            line = process.stdout.readline().strip()
-            if not line:
-                continue
+            # monitor output for card readings
+            while True:
+                  line = process.stdout.readline().strip()
+                  if not line:
+                        continue
                 
-            print(f"Proxmark3: {line}")
+                  print(f"Proxmark3: {line}")
             
-            # Check for EM4100 card detection using regex
-            match = card_pattern.search(line)
-            if match:
-                # Extract the card ID (first group in the regex)
-                card_id = match.group(1)
-                print(f"Card detected! ID: {card_id}")
-                latest_rfid = card_id
+                  # check for EM4100 card detection using regex
+                  match = card_pattern.search(line)
+                  if match:
+                        # extract card ID (first group in regex)
+                        card_id = match.group(1)
+                        print(f"Card detected! ID: {card_id}")
+                        latest_rfid = card_id
     
-    except Exception as e:
-        print(f"Proxmark3 error: {e}")
-        if 'process' in locals():
-            process.terminate()
+      except Exception as e:
+            print(f"Proxmark3 error: {e}")
+            if 'process' in locals():
+                  process.terminate()
 
-# Start the Proxmark3 monitoring in a separate thread
+# start proxmark3 monitoring in separate thread
 proxmark_thread = threading.Thread(target=run_proxmark3, daemon=True)
 proxmark_thread.start()
 
