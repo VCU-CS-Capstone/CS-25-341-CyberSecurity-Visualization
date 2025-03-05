@@ -107,7 +107,7 @@ proxmark_thread.start()
 
 # authentifaction loop
 while True:
-      # Clear the previous RFID value
+      # clear previous RFID value
       rfid = None
 
       # waiting for RFID scan
@@ -119,4 +119,4 @@ while True:
             time.sleep(0.1)  # delay to prevent CPU hogging
 
       # sending to server for authentication
-      authenticate(latest_rfid)
+      authenticate(rfid)
