@@ -1,6 +1,0 @@
-[+] loaded from JSON file `E:\FOR_Proxmark_Easy_512K\PM3_2023\client\/.proxmark3/preferences.json`
-[=] Using UART port COM7
-
-[!] ERROR: invalid serial port COM7
-
-[?] Try the shell script `./pm3 --list` to get a list of possible serial ports
