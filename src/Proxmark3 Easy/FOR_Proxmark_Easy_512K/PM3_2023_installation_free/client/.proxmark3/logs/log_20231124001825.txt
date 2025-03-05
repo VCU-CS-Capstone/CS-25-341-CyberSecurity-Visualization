@@ -1,0 +1,126 @@
+[+] loaded from JSON file `E:\FOR_Proxmark_Easy_512K\PM3_2023\client\/.proxmark3/preferences.json`
+[=] Using UART port COM7
+[=] Communicating with PM3 over USB-CDC
+  [ Proxmark3 RFID instrument ]
+
+    MCU....... AT91SAM7S512 Rev A
+    Memory.... 512 KB ( 61% used )
+
+    Client.... Iceman/master/v4.17511-19-g34a9eb76a 2023-11-21 11:52:11
+    Bootrom... Iceman/master/v4.17511-19-g34a9eb76a-suspect 2023-11-21 11:51:50 
+    OS........ Iceman/master/v4.17511-19-g34a9eb76a-suspect 2023-11-21 11:52:02 
+    Target.... PM3 GENERIC
+
+
+[=] No previous history could be loaded
+[usb|script] pm3 --> help
+
+[usb|script] pm3 --> a
+
+[usb|script] pm3 --> help hf
+
+[usb|script] pm3 --> hf
+
+[usb|script] pm3 --> hf help
+
+[usb|script] pm3 --> lf help
+
+[usb|script] pm3 --> hf search
+
+[+]  UID: 10 16 30 19 
+[+] ATQA: 00 04
+[+]  SAK: 08 [2]
+[+] Possible types:
+[+]    MIFARE Classic 1K
+[=] proprietary non iso14443-4 card found, RATS not supported
+[+] Magic capabilities : Gen 1a
+[+] Prng detection: weak
+[#] Auth error
+[?] Hint: try `hf mf` commands
+
+
+[+] Valid ISO 14443-A tag found
+
+[usb|script] pm3 --> hf
+
+[usb|script] pm3 --> hf 14a
+
+[usb|script] pm3 --> hf 14a help
+
+[usb|script] pm3 --> hf 14a reader help
+[!] Try 'hf 14a reader --help' for more information.
+
+[usb|script] pm3 --> hf 14a reader --help
+
+Act as a ISO-14443a reader to identify tag. Look for ISO-14443a tags until Enter or the pm3 button is pressed
+
+usage:
+    hf 14a readeroptions:
+
+examples/notes:
+    hf 14a reader                 
+    hf 14a reader -@               -> Continuous mode
+    hf 14a reader --ecp            -> trigger apple enhanced contactless polling
+    hf 14a reader --mag            -> trigger apple magsafe polling
+                                  
+
+[usb|script] pm3 --> hf 14a reader
+[+]  UID: 10 16 30 19 
+[+] ATQA: 00 04
+[+]  SAK: 08 [2]
+
+[usb|script] pm3 --> hf 14a reader
+[+]  UID: 10 16 30 19 
+[+] ATQA: 00 04
+[+]  SAK: 08 [2]
+
+[usb|script] pm3 --> hf 14a reader
+[+]  UID: 6A 89 2E 19 
+[+] ATQA: 00 04
+[+]  SAK: 08 [2]
+
+[usb|script] pm3 --> hf 14a
+
+[usb|script] pm3 --> hf 14a raw
+
+Sends raw bytes over ISO14443a. With option to use TOPAZ 14a mode.
+
+usage:
+    hf 14a rawoptions:
+
+examples/notes:
+    hf 14a raw -sc 3000            -> select, crc, where 3000 == 'read block 00'
+    hf 14a raw -ak -b 7 40         -> send 7 bit byte 0x40
+    hf 14a raw --ecp -s            -> send ECP before select
+
+[usb|script] pm3 --> Hf 14a raw
+
+Sends raw bytes over ISO14443a. With option to use TOPAZ 14a mode.
+
+usage:
+    hf 14a rawoptions:
+
+examples/notes:
+    hf 14a raw -sc 3000            -> select, crc, where 3000 == 'read block 00'
+    hf 14a raw -ak -b 7 40         -> send 7 bit byte 0x40
+    hf 14a raw --ecp -s            -> send ECP before select
+
+[usb|script] pm3 --> Hf 14a raw -sc 3000
+[+] 04 
+[usb|script] pm3 --> hf 14a reader
+[+]  UID: 10 16 30 19 
+[+] ATQA: 00 04
+[+]  SAK: 08 [2]
+
+[usb|script] pm3 --> lf search
+
+[=] NOTE: some demods output possible binary
+[=] if it finds something that looks like a tag
+[=] False Positives ARE possible
+[=] 
+[=] Checking for known tags...
+[=] 
+[!] Specify one authentication mode
+[-] No known 125/134 kHz tags found!
+[+] Chipset detection: T55xx
+[?] Hint: try `lf t55xx` commands
