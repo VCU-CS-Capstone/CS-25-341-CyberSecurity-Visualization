@@ -1,53 +1,53 @@
 import socket
 
-# socket ip and port global variables
-server_host = "127.0.0.1"												# TODO change to the IP address of the auth server on current network
+# Socket ip and port global variables
+server_host = "192.168.1.156"
 server_port = 341
 
-# setting up socket
+# Setting up socket
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(('', server_port))
 server.listen(1)
 print ("Socket created\n")
 
-# function to authenticate the rfid signals
-def authenticate(rfid):													# TODO create authentication process
+# Function to authenticate the rfid signals
+def authenticate(rfid):													# TODO Create authentication process
 	valid_rfids = [1, 2, 3]
 	return True if rfid in valid_rfids else False
 
-# server loop
+# Server loop
 while True:
-	# waiting for client connection
+	# Waiting for client connection
 	print("Waiting for client ...")
 	door_pi, addr = server.accept()
 	print("Client connected from: ", addr)
 
-	# confirming client is a door pi
+	# Confirming client is a door pi
 	confirmation = "Auth Server"
 	request = door_pi.recv(64).decode()
 	print("Confirmation request received: " + request + ".")
 
-	# closing connection if connected device is not door pi 
+	# Closing connection if connected device is not door pi 
 	if request != "Door PI":
 		door_pi.close()
 		print("Request is not coming from a door pi\nConnection closed\n")
-	# continuing with authentication if door pi is confirmed
+	# Continuing with authentication if door pi is confirmed
 	else:
 		door_pi.send(confirmation.encode())
 		print("Request confirmed")
 
-		# receiving rfid
+		# Receiving rfid
 		rfid_string = door_pi.recv(64).decode()
 		rfid = int(rfid_string)
 		print("RFID received: ", rfid)
 
-		# authenticating rfid
+		# Authenticating rfid
 		verified = authenticate(rfid)
 		response = "RFID verified" if verified else "RFID not valid"
 
-		# sending output back to client
+		# Sending output back to client
 		door_pi.send(response.encode())
 		print("Response sent\n")
 
-	# closing connection to client
+	# Closing connection to client
 	door_pi.close()
