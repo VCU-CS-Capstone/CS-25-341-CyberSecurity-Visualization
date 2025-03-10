@@ -6,7 +6,7 @@ import re
 import os
 import glob
 
-server_host = "127.0.0.1"  # TODO change to the IP address of the auth server on current network
+server_host = "192.168.1.156"
 server_port = 341
 
 # Global variable to store the latest RFID read
@@ -18,23 +18,27 @@ def unlock_door():
 
 # Function to send rfid to server for authentication
 def authenticate(rfid):
-    # creating socket
+    # Creating socket
     auth = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
-        # connecting to auth server
+        # Connecting to auth server
         auth.connect((server_host, server_port))
         print("Connecting to auth server ...")
-        # confirming connection
+
+        # Confirming connection
         request = "Door PI"
         auth.send(request.encode())
         confirmation = auth.recv(64).decode()
-        # closing connection if auth server is not reached
+
+        # Closing connection if auth server is not reached
         if confirmation != "Auth Server":
             print("Connected server is not the auth server\nConnection closed\n")
-        # continuing with authentication if auth server is confirmed
+
+        # Continuing with authentication if auth server is confirmed
         else:
             print("Auth server confirmed")
-            # receiving and printing response from server
+            
+            # Receiving and printing response from server
             auth.send(str(rfid).encode())
             response = auth.recv(64).decode()
             verified = response == "RFID verified"
@@ -46,7 +50,7 @@ def authenticate(rfid):
     except Exception as e:
         print(f"Authentication error: {e}")
     finally:
-        # closing connection to server
+        # Closing connection to server
         auth.close()
 
 # Function to start Proxmark3 and monitor its log file
@@ -54,9 +58,9 @@ def run_proxmark3():
     global latest_rfid
     
     # Path to the Proxmark3 executable and device
-    proxmark_dir = "/Users/dominictran/proxmark3"
+    proxmark_dir = "~/proxmark3"
     pm3_path = os.path.join(proxmark_dir, "pm3")
-    device_port = "/dev/tty.usbmodemiceman1"
+    device_port = "/dev/ttyACM0"
     
     print(f"Using Proxmark3 client at: {pm3_path}")
     print(f"Connecting to device at: {device_port}")
