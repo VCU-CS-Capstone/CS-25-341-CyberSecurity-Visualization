@@ -58,7 +58,7 @@ def run_proxmark3():
     global latest_rfid
     
     # Path to the Proxmark3 executable and device
-    proxmark_dir = "~/proxmark3"
+    proxmark_dir = "/home/kali/proxmark3"
     pm3_path = os.path.join(proxmark_dir, "pm3")
     device_port = "/dev/ttyACM0"
     
@@ -66,7 +66,7 @@ def run_proxmark3():
     print(f"Connecting to device at: {device_port}")
     
     # Find the Proxmark3 log directory
-    log_dir = os.path.expanduser("~/.proxmark3/logs")
+    log_dir = "/home/kali/.proxmark3/logs"
     if not os.path.exists(log_dir):
         print(f"Error: Could not find Proxmark3 logs directory at {log_dir}")
         return
