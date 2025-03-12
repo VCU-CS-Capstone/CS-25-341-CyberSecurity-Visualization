@@ -89,7 +89,9 @@ def run_proxmark3():
         stdout, stderr = process.communicate()
         print("Proxmark3 Output:\n", stdout)
         print("Proxmark3 Errors:\n", stderr)
-        
+
+        print("4")
+                
         # Looping until a log file is created
         print("Checking for Proxmark3 log files")
         log_files = None
@@ -98,6 +100,8 @@ def run_proxmark3():
             log_files = sorted(glob.glob(os.path.join(log_dir, "log_*.txt")), reverse=True)
             time.sleep(2)  # Give it time to create the log file
         
+        print("5")
+
         print("Proxmark3 started with EM410x watch mode")
         log_file = log_files[0]
         print(f"Monitoring Proxmark3 log file: {log_file}")
