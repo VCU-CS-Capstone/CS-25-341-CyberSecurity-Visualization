@@ -86,9 +86,14 @@ def run_proxmark3():
 
         print("3")
 
-        stdout, stderr = process.communicate()
-        print("Proxmark3 Output:\n", stdout)
-        print("Proxmark3 Errors:\n", stderr)
+        # Read pm3 output in real-time
+        while True:
+            output = process.stdout.readline()
+            if output == "" and process.poll() is not None:
+                break  # Exit loop when process exits
+
+            if output:
+                print(f"Proxmark3 Output: {output.strip()}")  # Print each line immediately
 
         print("4")
                 
