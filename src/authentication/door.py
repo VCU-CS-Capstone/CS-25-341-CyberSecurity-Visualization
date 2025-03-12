@@ -80,11 +80,11 @@ def run_proxmark3():
         )
         
         # Looping until a log file is created
+        print("Checking for Proxmark3 log files")
         log_files = None
         while not log_files:
             # Get the most recent log file
             log_files = sorted(glob.glob(os.path.join(log_dir, "log_*.txt")), reverse=True)
-            print("Error: No log files found in Proxmark3 logs directory")
             time.sleep(2)  # Give it time to create the log file
         
         print("Proxmark3 started with EM410x watch mode")
