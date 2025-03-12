@@ -75,9 +75,14 @@ def run_proxmark3():
         # Start the Proxmark3 with the watch command
         process = subprocess.Popen(
             [pm3_path, "-p", device_port, "-c", "lf em 410x watch"],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT
+            stdout = subprocess.PIPE,
+            stderr = subprocess.STDOUT,
+            text = True
         )
+
+        stdout, stderr = process.communicate()
+        print("Proxmark3 Output:\n", stdout)
+        print("Proxmark3 Errors:\n", stderr)
         
         # Looping until a log file is created
         print("Checking for Proxmark3 log files")
