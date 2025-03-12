@@ -5,6 +5,7 @@ import time
 import re
 import os
 import glob
+import pty
 
 server_host = "192.168.1.156"
 server_port = 341
@@ -77,12 +78,12 @@ def run_proxmark3():
 
     try:
         # Start the Proxmark3 with the watch command
+        master, slave = pty.openpty()
         process = subprocess.Popen(
             [pm3_path, "-p", device_port, "-c", "lf em 410x watch"],
-            stdout = subprocess.PIPE,
-            stderr = subprocess.STDOUT,
-            text = True
+            stdin=slave, stdout=slave, stderr=slave, close_fds=True
         )
+
 
         print("3")
 
