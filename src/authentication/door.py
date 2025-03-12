@@ -64,6 +64,8 @@ def run_proxmark3():
     
     print(f"Using Proxmark3 client at: {pm3_path}")
     print(f"Connecting to device at: {device_port}")
+
+    print("1")
     
     # Find the Proxmark3 log directory
     log_dir = "/home/kali/.proxmark3/logs"
@@ -71,6 +73,8 @@ def run_proxmark3():
         print(f"Error: Could not find Proxmark3 logs directory at {log_dir}")
         return
     
+    print("2")
+
     try:
         # Start the Proxmark3 with the watch command
         process = subprocess.Popen(
@@ -79,6 +83,8 @@ def run_proxmark3():
             stderr = subprocess.STDOUT,
             text = True
         )
+
+        print("3")
 
         stdout, stderr = process.communicate()
         print("Proxmark3 Output:\n", stdout)
