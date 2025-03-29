@@ -37,8 +37,7 @@ while True:
 		print("Request confirmed")
 
 		# Receiving rfid
-		rfid_string = door_pi.recv(64).decode()
-		rfid = hex(rfid_string)
+		rfid = door_pi.recv(64).decode()
 		print("RFID received: ", rfid)
 
 		# Authenticating rfid
