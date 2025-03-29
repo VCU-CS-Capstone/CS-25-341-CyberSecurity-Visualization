@@ -12,7 +12,7 @@ print ("Socket created\n")
 
 # Function to authenticate the rfid signals
 def authenticate(rfid):													# TODO Create authentication process
-	valid_rfids = [1, 2, 3]
+	valid_rfids = ["3400735b41"]
 	return True if rfid in valid_rfids else False
 
 # Server loop

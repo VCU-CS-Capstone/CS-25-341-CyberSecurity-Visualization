@@ -65,16 +65,12 @@ def run_proxmark3():
     
     print(f"Using Proxmark3 client at: {pm3_path}")
     print(f"Connecting to device at: {device_port}")
-
-    print("1")
     
     # Find the Proxmark3 log directory
     log_dir = "/home/kali/.proxmark3/logs"
     if not os.path.exists(log_dir):
         print(f"Error: Could not find Proxmark3 logs directory at {log_dir}")
         return
-    
-    print("2")
 
     try:
         # Start the Proxmark3 with the watch command
@@ -83,20 +79,6 @@ def run_proxmark3():
             [pm3_path, "-p", device_port, "-c", "lf em 410x watch"],
             stdin=slave, stdout=slave, stderr=slave, close_fds=True
         )
-
-
-        print("3")
-
-        # # Read pm3 output in real-time
-        # while True:
-        #     output = process.stdout.readline()
-        #     if output == "" and process.poll() is not None:
-        #         break  # Exit loop when process exits
-
-        #     if output:
-        #         print(f"Proxmark3 Output: {output.strip()}")  # Print each line immediately 
-
-        print("4")
                 
         # Looping until a log file is created
         print("Checking for Proxmark3 log files")
@@ -105,8 +87,6 @@ def run_proxmark3():
             # Get the most recent log file
             log_files = sorted(glob.glob(os.path.join(log_dir, "log_*.txt")), reverse=True)
             time.sleep(2)  # Give it time to create the log file
-        
-        print("5")
 
         print("Proxmark3 started with EM410x watch mode")
         log_file = log_files[0]
