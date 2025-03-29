@@ -7,7 +7,8 @@ import os
 import glob
 import pty
 
-server_host = "192.168.1.175"
+# Socket IP and port
+server_host = "192.168.1.175"                       # TODO Change IP address to auth server
 server_port = 25341
 
 # Global variable to store the latest RFID read
