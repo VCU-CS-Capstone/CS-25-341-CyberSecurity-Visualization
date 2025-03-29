@@ -7,7 +7,7 @@ import os
 import glob
 import pty
 
-server_host = "192.168.1.156"
+server_host = "192.168.1.175"
 server_port = 341
 
 # Global variable to store the latest RFID read

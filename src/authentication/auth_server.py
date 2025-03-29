@@ -1,7 +1,7 @@
 import socket
 
 # Socket ip and port global variables
-server_host = "192.168.1.156"
+server_host = "192.168.1.175"
 server_port = 341
 
 # Setting up socket
