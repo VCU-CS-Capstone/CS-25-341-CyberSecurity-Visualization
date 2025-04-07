@@ -18,7 +18,7 @@ def jam(rfid):
         print(e.stderr)
 
 def main():
-    test_rfid = "128456"
+    test_rfid = "1284560df1"
     jam(test_rfid)
 
 
