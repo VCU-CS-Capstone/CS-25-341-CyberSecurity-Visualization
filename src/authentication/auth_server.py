@@ -8,6 +8,7 @@ server_port = 25341
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(('', server_port))
 server.listen(1)
+print(f"Server listening on port {server_port}")
 print ("Socket created\n")
 
 # Function to authenticate the rfid signals
