@@ -5,7 +5,7 @@ This project documents the use of [Zeek](https://zeek.org/) to monitor and log n
 ## Setup Overview
 
 - **Zeek version**: 7.1.1
-- **Environment**: macOS
+- **Environment**: variable
 - **Interface Used**: `en0` (Wi-Fi)
 - **Target Devices**:
   - Door1 IP: `192.168.1.152`
