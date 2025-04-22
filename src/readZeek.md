@@ -22,7 +22,7 @@ Zeek was run to only capture traffic involving the two devices of interest:
 sudo zeek -i en0 -f "host 192.168.1.152 or host 192.168.1.157"
 
 
-To organize logs by session, we created timestamped directories and ran Zeek inside them:
+# To organize logs by session, we created timestamped directories and ran Zeek inside them:
 
 mkdir "$(date '+%Y-%m-%d_%H-%M-%S')"
 cd "$(date '+%Y-%m-%d_%H-%M-%S')"
