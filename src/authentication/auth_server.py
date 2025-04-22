@@ -18,36 +18,39 @@ def authenticate(rfid):													# TODO Create authentication process
 
 # Server loop
 while True:
-	# Waiting for client connection
-	print("Waiting for client ...")
-	door_pi, addr = server.accept()
-	print("Client connected from: ", addr)
+	try:
+		# Waiting for client connection
+		print("Waiting for client ...")
+		door_pi, addr = server.accept()
+		print("Client connected from: ", addr)
 
-	# Confirming client is a door pi
-	confirmation = "Auth Server"
-	request = door_pi.recv(64).decode()
-	print("Confirmation request received: " + request + ".")
+		# Confirming client is a door pi
+		confirmation = "Auth Server"
+		request = door_pi.recv(64).decode()
+		print("Confirmation request received: " + request + ".")
 
-	# Closing connection if connected device is not door pi 
-	if request != "Door PI":
+		# Closing connection if connected device is not door pi 
+		if request != "Door PI":
+			door_pi.close()
+			print("Request is not coming from a door pi\nConnection closed\n")
+		# Continuing with authentication if door pi is confirmed
+		else:
+			door_pi.send(confirmation.encode())
+			print("Request confirmed")
+
+			# Receiving rfid
+			rfid = door_pi.recv(64).decode()
+			print("RFID received: ", rfid)
+
+			# Authenticating rfid
+			verified = authenticate(rfid)
+			response = "RFID verified" if verified else "RFID not valid"
+
+			# Sending output back to client
+			door_pi.send(response.encode())
+			print("Response sent\n")
+	except Exception as e:
+		print(f"Authentication error: {e}") 
+	finally:
+		# Closing connection to client
 		door_pi.close()
-		print("Request is not coming from a door pi\nConnection closed\n")
-	# Continuing with authentication if door pi is confirmed
-	else:
-		door_pi.send(confirmation.encode())
-		print("Request confirmed")
-
-		# Receiving rfid
-		rfid = door_pi.recv(64).decode()
-		print("RFID received: ", rfid)
-
-		# Authenticating rfid
-		verified = authenticate(rfid)
-		response = "RFID verified" if verified else "RFID not valid"
-
-		# Sending output back to client
-		door_pi.send(response.encode())
-		print("Response sent\n")
-
-	# Closing connection to client
-	door_pi.close()
