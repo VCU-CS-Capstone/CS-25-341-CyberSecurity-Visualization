@@ -7,6 +7,11 @@ import os
 import glob
 import pty
 
+# TODO Lines
+#   15
+#   82
+#   135
+
 # Socket IP and port
 server_host = "192.168.1.174"                       # TODO Change IP address to auth server
 server_port = 25341
@@ -75,7 +80,7 @@ def run_proxmark3():
 
     try:
         # Start the Proxmark3 with the watch command
-        master, slave = pty.openpty()
+        master, slave = pty.openpty()                                                   # TODO safely terminate child process
         process = subprocess.Popen(
             [pm3_path, "-p", device_port, "-c", "lf em 410x watch"],
             stdin=slave, stdout=slave, stderr=slave, close_fds=True
@@ -127,7 +132,7 @@ def run_proxmark3():
 
 # Start the Proxmark3 monitoring in a separate thread
 proxmark_thread = threading.Thread(target=run_proxmark3, daemon=True)
-proxmark_thread.start()
+proxmark_thread.start()                                                 # TODO safely terminate thread?
 
 # Authentication loop
 while True:
