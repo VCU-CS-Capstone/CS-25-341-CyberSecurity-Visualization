@@ -1,7 +1,7 @@
 import socket
 
 # Socket IP and port
-server_host = "192.168.1.174"                       # TODO Change IP address to auth server
+server_host = "192.168.1.175"                       # TODO Change IP address to auth server
 server_port = 25341
 
 # Setting up socket
